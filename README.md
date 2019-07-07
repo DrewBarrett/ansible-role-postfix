@@ -51,8 +51,6 @@ This playbook shows an example of an SMTP relay
                 value: static:username@mail.com:password
               - name: smtp_use_tls
                 value: 'yes'
-              - name: smtp_generic_maps
-                value: static:username@mail.com
 
 ## License
 
