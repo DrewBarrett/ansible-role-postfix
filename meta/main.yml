@@ -2,9 +2,9 @@
 dependencies: []
 
 galaxy_info:
-  author: geerlingguy
-  description: Postfix for RedHat/CentOS or Debian/Ubuntu.
-  company: "Midwestern Mac, LLC"
+  author: DrewBarrett
+  description: Postfix with complete configuration
+  company: ""
   license: "license (BSD, MIT)"
   min_ansible_version: 2.0
   platforms:
@@ -15,6 +15,9 @@ galaxy_info:
       versions:
         - all
     - name: Ubuntu
+      versions:
+        - all
+    - name: Archlinux
       versions:
         - all
   galaxy_tags:

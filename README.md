@@ -1,12 +1,9 @@
 # Ansible Role: Postfix
 
-[![Build Status](https://travis-ci.org/geerlingguy/ansible-role-postfix.svg?branch=master)](https://travis-ci.org/geerlingguy/ansible-role-postfix)
-
-Installs postfix on RedHat/CentOS or Debian/Ubuntu.
+Installs postfix
 
 ## Requirements
 
-If you're using this as an SMTP relay server, you will need to do that on your own, and open TCP port 25 in your server firewall.
 
 ## Role Variables
 
@@ -21,25 +18,42 @@ The path to the Postfix `main.cf` configuration file.
 
 The state in which the Postfix service should be after this role runs, and whether to enable the service on startup.
 
-    postfix_inet_interfaces: localhost
-    postfix_inet_protocols: all
-
-Options for values `inet_interfaces` and `inet_protocols` in the `main.cf` file.
+    configuration_items:
+        - name: inet_interfaces
+          value: localhost
+        - ...
+    
+Options for values in the `main.cf` file. This can be any configuration item from `POSTCONF(5)`.
 
 ## Dependencies
 
 None.
 
 ## Example Playbook
+This playbook shows an example of an SMTP relay
 
     - hosts: all
       roles:
-        - geerlingguy.postfix
+        - role: postfix
+          vars:
+            configuration_items:
+              - name: inet_interfaces
+                value: localhost
+              - name: inet_protocols
+                value: all
+              - name: relayhost
+                value: '[mail.com]:587'
+              - name: smtp_sasl_auth_enable
+                value: 'yes'
+              - name: smtp_sasl_security_options
+                value: noanonymous
+              - name: smtp_sasl_password_maps
+                value: static:username@mail.com:password
+              - name: smtp_use_tls
+                value: 'yes'
+              - name: smtp_generic_maps
+                value: static:username@mail.com
 
 ## License
 
 MIT / BSD
-
-## Author Information
-
-This role was created in 2014 by [Jeff Geerling](https://www.jeffgeerling.com/), author of [Ansible for DevOps](https://www.ansiblefordevops.com/).
