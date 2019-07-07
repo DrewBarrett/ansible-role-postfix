@@ -26,3 +26,5 @@ galaxy_info:
     - mail
     - postfix
     - sendmail
+    - relay
+    - smtp
