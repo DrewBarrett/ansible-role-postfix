@@ -2,6 +2,7 @@
 dependencies: []
 
 galaxy_info:
+  role_name: Postfix
   author: DrewBarrett
   description: Postfix with complete configuration
   company: ""
@@ -20,6 +21,7 @@ galaxy_info:
     - name: Archlinux
       versions:
         - all
+        - 1.0
   galaxy_tags:
     - networking
     - system
