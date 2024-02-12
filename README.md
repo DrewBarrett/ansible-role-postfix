@@ -36,7 +36,7 @@ This playbook shows an example of an SMTP relay
       roles:
         - role: postfix
           vars:
-            configuration_items:
+            postfix_configuration_items:
               - name: inet_interfaces
                 value: localhost
               - name: inet_protocols
