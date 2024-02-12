@@ -9,7 +9,7 @@
     dest: "{{ postfix_config_file }}"
     line: "{{ item.name }} = {{ item.value }}"
     regexp: "^{{ item.name }} ="
-  with_items: "{{ configuration_items }}"
+  with_items: "{{ postfix_configuration_items }}"
   notify: restart postfix
 
 - name: Ensure postfix is started and enabled at boot.
