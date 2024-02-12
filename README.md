@@ -18,7 +18,7 @@ The path to the Postfix `main.cf` configuration file.
 
 The state in which the Postfix service should be after this role runs, and whether to enable the service on startup.
 
-    configuration_items:
+    postfix_configuration_items:
         - name: inet_interfaces
           value: localhost
         - ...
@@ -36,7 +36,7 @@ This playbook shows an example of an SMTP relay
       roles:
         - role: postfix
           vars:
-            configuration_items:
+            postfix_configuration_items:
               - name: inet_interfaces
                 value: localhost
               - name: inet_protocols
